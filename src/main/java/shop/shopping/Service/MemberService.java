@@ -18,7 +18,6 @@ public class MemberService {
     public void register(MemberSaveDto dto){
         Member member = dto.toEntity();
         memberRepository.save(member);
-        System.out.println(member.getM_utype().getClass());
 
     }
 

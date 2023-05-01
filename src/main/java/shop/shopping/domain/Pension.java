@@ -1,7 +1,11 @@
 package shop.shopping.domain;
 
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -10,7 +14,11 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity @EntityListeners(AuditingEntityListener.class)
+@Entity
+@EntityListeners(AuditingEntityListener.class)
+@NoArgsConstructor
+@Setter
+@Getter
 public class Pension {
 
     @Id
@@ -19,26 +27,32 @@ public class Pension {
     private String P_ID;
 
     @Column(nullable = false)
-    private String P_NAME;
+    private String p_name;
 
     @Column(nullable = false)
-    private String P_ADDR;
+    private String p_addr;
 
     @Column(nullable = false)
-    private String P_TEL;
+    private String p_tel;
 
     @Column(nullable = false)
-    private Long P_BLCOUNT;
+    private Long p_blcount;
 
     @Column(nullable = false)
-    private LocalDateTime P_ENROLLDATE;
+    @CreatedDate
+    private LocalDateTime p_enrolldate;
 
     @ManyToOne
     @JoinColumn
-    private Owner OWNER;
+    private Owner owner;
 
     @OneToMany(mappedBy = "PENSION")
     private List<Room> rooms = new ArrayList<Room>();
 
-
+    public Pension(String p_name, String p_addr, String p_tel, Long p_blcount) {
+        this.p_name = p_name;
+        this.p_addr = p_addr;
+        this.p_tel = p_tel;
+        this.p_blcount = p_blcount;
+    }
 }

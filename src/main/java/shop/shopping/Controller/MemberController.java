@@ -17,6 +17,7 @@ public class MemberController {
     @PostMapping ("/register")
     public ResponseEntity<MemberSaveDto> registerMember(@RequestBody MemberSaveDto dto){
         memberService.register(dto);
+        System.out.println(dto);
         return ResponseEntity.ok().body(dto);
     }
 

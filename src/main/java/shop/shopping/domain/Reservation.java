@@ -54,8 +54,9 @@ public class Reservation {
     private Member MEMBER;
 
 
-    @OneToMany(mappedBy = "RESERVATION")
-    private List<Room> rooms = new ArrayList<Room>();
+    @ManyToOne
+    @JoinColumn
+    private Room room;
 
     public Reservation(Date RES_CHECKIN, Date RES_CHECKOUT, RES_STA RES_STATE, Long RES_NOP, Long RES_PRICE) {
         this.RES_CHECKIN = RES_CHECKIN;

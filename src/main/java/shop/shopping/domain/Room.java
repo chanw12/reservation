@@ -1,11 +1,16 @@
 package shop.shopping.domain;
 
 
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
+@Setter @NoArgsConstructor
 public class Room {
 
     @Id
@@ -26,17 +31,18 @@ public class Room {
     private Long R_SIZE;
 
 
-    @ManyToOne
-    @JoinColumn
-    private Reservation RESERVATION;
+    @OneToMany(mappedBy = "room")
+    private List<Reservation> reservations = new ArrayList<Reservation>();
+
 
     @ManyToOne
     @JoinColumn
     private Pension PENSION;
 
-
-
-
-
-
+    public Room(String r_NAME, Long r_PRICE, Long r_MAXNOP, Long r_SIZE) {
+        this.R_NAME = r_NAME;
+        this.R_PRICE = r_PRICE;
+        this.R_MAXNOP = r_MAXNOP;
+        this.R_SIZE = r_SIZE;
+    }
 }

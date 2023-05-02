@@ -20,6 +20,7 @@ public class ReservationSaveDto {
     private Long res_nop;
     private Long res_price;
     private String memberId;
+    private String roomId;
 
     public Reservation toEntity(){
         Reservation reservation = new Reservation(res_checkin, res_checkout, res_state, res_nop, res_price);

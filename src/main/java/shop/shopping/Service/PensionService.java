@@ -16,9 +16,6 @@ public class PensionService {
     @Transactional
     public void register(PensionSaveDto dto){
         Pension pension = dto.toEntity();
-
-        System.out.println("---------------");
-        System.out.println(dto);
         pension.setOwner(ownerRepository.findById(dto.getOwner_id()).get());
         pensionRepository.save(pension);
         System.out.println(pension.getOwner().getO_name());

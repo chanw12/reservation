@@ -6,19 +6,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import shop.shopping.Service.OwnerService;
-import shop.shopping.domain.Dto.OwnerSaveDto;
-
+import shop.shopping.Service.ReservationService;
+import shop.shopping.domain.Dto.ReservationSaveDto;
 
 @RestController
-@RequestMapping("/owner")
+@RequestMapping("/reservation")
 @RequiredArgsConstructor
-public class OwnerController {
-    private final OwnerService ownerService;
+public class ReservationController {
+    private final ReservationService reservationService;
+
     @PostMapping("/register")
-    public ResponseEntity<OwnerSaveDto> registerOwner(@RequestBody  OwnerSaveDto dto){
-        ownerService.register(dto);
+    public ResponseEntity<ReservationSaveDto> registerReserv(@RequestBody ReservationSaveDto dto){
+        reservationService.register(dto);
         return ResponseEntity.ok().body(dto);
     }
-
 }

@@ -2,6 +2,7 @@ package shop.shopping.domain;
 
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.CreatedDate;
@@ -17,6 +18,7 @@ import java.util.List;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
 public class Reservation {
     public enum RES_STA{
@@ -54,4 +56,12 @@ public class Reservation {
 
     @OneToMany(mappedBy = "RESERVATION")
     private List<Room> rooms = new ArrayList<Room>();
+
+    public Reservation(Date RES_CHECKIN, Date RES_CHECKOUT, RES_STA RES_STATE, Long RES_NOP, Long RES_PRICE) {
+        this.RES_CHECKIN = RES_CHECKIN;
+        this.RES_CHECKOUT = RES_CHECKOUT;
+        this.RES_STATE = RES_STATE;
+        this.RES_NOP = RES_NOP;
+        this.RES_PRICE = RES_PRICE;
+    }
 }

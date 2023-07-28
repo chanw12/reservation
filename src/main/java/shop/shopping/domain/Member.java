@@ -30,6 +30,9 @@ public class Member {
     @GenericGenerator(name = "member_generator",parameters = @org.hibernate.annotations.Parameter(name ="prefix",value="MB"),strategy =  "shop.shopping.domain.Generator.CustomGenerator")
     private String m_id;
 
+    @Column(unique = true,nullable = false)
+    private String muserid;
+
     @Column(length = 1000,nullable = false)
     private String m_pwd;
 
@@ -59,7 +62,8 @@ public class Member {
     @OneToMany(mappedBy = "MEMBER")
     private List<Reservation> reservations = new ArrayList<Reservation>();
 
-    public Member(String m_pwd, String m_name, String m_birth, String m_email, String m_gender, String m_phonenumber, USERTYPE m_utype) {
+    public Member(String muserid,String m_pwd, String m_name, String m_birth, String m_email, String m_gender, String m_phonenumber, USERTYPE m_utype) {
+        this.muserid = muserid;
         this.m_pwd = m_pwd;
         this.m_name = m_name;
         this.m_birth = m_birth;

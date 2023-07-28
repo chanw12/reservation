@@ -7,8 +7,8 @@ import shop.shopping.domain.Dto.OwnerSaveDto;
 import shop.shopping.domain.Owner;
 import shop.shopping.repository.OwnerRepository;
 
-@Service
 @RequiredArgsConstructor
+@Service
 public class OwnerService {
     private final OwnerRepository ownerRepository;
     @Transactional

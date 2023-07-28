@@ -1,5 +1,4 @@
 package shop.shopping.Service;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -8,8 +7,8 @@ import shop.shopping.domain.Pension;
 import shop.shopping.repository.OwnerRepository;
 import shop.shopping.repository.PensionRepository;
 
-@Service
 @RequiredArgsConstructor
+@Service
 public class PensionService {
     private final PensionRepository pensionRepository;
     private final OwnerRepository ownerRepository;

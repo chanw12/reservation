@@ -9,15 +9,22 @@ import shop.shopping.domain.Dto.MemberSaveDto;
 import shop.shopping.domain.Member;
 import shop.shopping.repository.MemberRepository;
 
-@Service
 @RequiredArgsConstructor
+@Service
 public class MemberService {
     private final MemberRepository memberRepository;
 
     @Transactional
     public void register(MemberSaveDto dto){
         Member member = dto.toEntity();
-        memberRepository.save(member);
+        if(memberRepository.existsBymuserid(member.getMuserid())){
+            throw new IllegalArgumentException("이미 존재하는 아이디 입니다");
+        }else{
+            memberRepository.save(member);
+        }
+
+
+
 
     }
 

@@ -41,6 +41,7 @@ public class Reservation {
     private Date RES_CHECKOUT;
 
     @Column
+    @Enumerated(value = EnumType.STRING)
     private RES_STA RES_STATE;
 
     @Column

@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import shop.shopping.ErrorResponse;
 import shop.shopping.Service.MemberService;
 import shop.shopping.domain.Dto.MemberSaveDto;
 
@@ -15,10 +16,15 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping ("/register")
-    public ResponseEntity<MemberSaveDto> registerMember(@RequestBody MemberSaveDto dto){
-        memberService.register(dto);
-        System.out.println(dto);
-        return ResponseEntity.ok().body(dto);
+    public ResponseEntity<?> registerMember(@RequestBody MemberSaveDto dto){
+        try{
+            memberService.register(dto);
+            return ResponseEntity.ok().body(dto);
+
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+        }
+
     }
 
 

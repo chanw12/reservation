@@ -9,6 +9,7 @@ import shop.shopping.domain.Member;
 @Getter
 public class MemberSaveDto {
 
+    private String muserid;
     private String m_pwd;
 
     private String m_name;
@@ -24,7 +25,7 @@ public class MemberSaveDto {
 
 
     public Member toEntity(){
-        Member member = new Member(m_pwd,m_name,m_birth,m_email,m_gender,m_phonenumber,m_utype);
+        Member member = new Member(muserid,m_pwd,m_name,m_birth,m_email,m_gender,m_phonenumber,m_utype);
         return member;
     }
 }

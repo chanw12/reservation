@@ -17,14 +17,14 @@ public class MemberController {
 
     @PostMapping ("/register")
     public ResponseEntity<?> registerMember(@RequestBody MemberSaveDto dto){
-        try{
-            memberService.register(dto);
-            return ResponseEntity.ok().body(dto);
+//        try{
+        memberService.register(dto);
+        return ResponseEntity.ok().body(dto);
 
-        }catch (Exception e){
-            return ResponseEntity.status(HttpStatus.CONFLICT)
-        }
-
+//        }catch (Exception e){
+//            System.out.println(e);
+//        }
+//        return ResponseEntity.ok().body(dto);
     }
 
 

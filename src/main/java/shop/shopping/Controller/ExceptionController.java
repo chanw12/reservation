@@ -17,4 +17,10 @@ public class ExceptionController {
     public ResponseEntity<Object> DataIntegrityVioloationException(final Exception ex){
         return ResponseEntity.status(HttpStatus.CONFLICT).body(new ErrorResponse(ex.getMessage(),HttpStatus.CONFLICT.toString()));
     }
+    @ExceptionHandler({
+            RuntimeException.class
+    })
+    public ResponseEntity<Object> RuntimeException(final Exception ex){
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(ex.getMessage(),HttpStatus.BAD_REQUEST.toString()));
+    }
 }

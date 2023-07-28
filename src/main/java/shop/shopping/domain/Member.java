@@ -51,7 +51,7 @@ public class Member {
     @CreatedDate
     private LocalDateTime m_sd;
 
-    @Column
+    @Column()
     private String m_phonenumber;
 
     @Column
@@ -71,5 +71,10 @@ public class Member {
         this.m_gender = m_gender;
         this.m_phonenumber = m_phonenumber;
         this.m_utype = m_utype;
+    }
+
+    public String phone_format(String number) {
+        String regEx = "(\\d{3})(\\d{3,4})(\\d{4})";
+        return number.replaceAll(regEx, "$1-$2-$3");
     }
 }

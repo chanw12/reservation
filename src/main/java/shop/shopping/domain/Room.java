@@ -1,6 +1,7 @@
 package shop.shopping.domain;
 
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
@@ -10,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Getter
 @Setter @NoArgsConstructor
 public class Room {
 

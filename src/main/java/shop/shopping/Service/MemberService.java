@@ -18,14 +18,11 @@ public class MemberService {
     @Transactional
     public void register(MemberSaveDto dto){
         Member member = dto.toEntity();
-        if(memberRepository.existsBymuserid(member.getMuserid())){
+        if(memberRepository.existsBymuserid(member.getMuserid())) {
             throw new DataIntegrityViolationException("이미 존재하는 아이디 입니다");
         }else{
             memberRepository.save(member);
         }
-
-
-
     }
 
 }

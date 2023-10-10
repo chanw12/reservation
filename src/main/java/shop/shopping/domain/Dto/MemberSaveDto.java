@@ -4,6 +4,7 @@ package shop.shopping.domain.Dto;
 import lombok.Getter;
 import shop.shopping.domain.Member;
 
+import javax.validation.constraints.Pattern;
 
 
 @Getter
@@ -19,6 +20,7 @@ public class MemberSaveDto {
     private String m_gender;
 
     private String m_email;
+    @Pattern(regexp = "^01(?:0|1|[6-9])[.-]?(\\d{3}|\\d{4})[.-]?(\\d{4})$", message = "핸드폰 번호의 형식과 맞지 않습니다.")
     private String m_phonenumber;
 
     private Member.USERTYPE m_utype;

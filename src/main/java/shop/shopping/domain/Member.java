@@ -10,6 +10,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +52,8 @@ public class Member {
     @CreatedDate
     private LocalDateTime m_sd;
 
-    @Column()
+    @Column
+    @Pattern(regexp = "^01(?:0|1|[6-9])[.-]?(\\d{3}|\\d{4})[.-]?(\\d{4})$", message = "핸드폰 번호의 형식과 맞지 않습니다.")
     private String m_phonenumber;
 
     @Column
@@ -73,8 +75,4 @@ public class Member {
         this.m_utype = m_utype;
     }
 
-    public String phone_format(String number) {
-        String regEx = "(\\d{3})(\\d{3,4})(\\d{4})";
-        return number.replaceAll(regEx, "$1-$2-$3");
-    }
 }

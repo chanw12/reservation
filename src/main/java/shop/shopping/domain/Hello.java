@@ -19,4 +19,7 @@ public class Hello {
 
     @Column
     private String name;
+
+
+
 }

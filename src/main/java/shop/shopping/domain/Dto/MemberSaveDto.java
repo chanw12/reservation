@@ -4,7 +4,7 @@ package shop.shopping.domain.Dto;
 import lombok.Getter;
 import shop.shopping.domain.Member;
 
-import javax.validation.constraints.Pattern;
+import jakarta.validation.constraints.Pattern;
 
 
 @Getter

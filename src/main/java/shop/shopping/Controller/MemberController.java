@@ -1,8 +1,6 @@
 package shop.shopping.Controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.dao.DataIntegrityViolationException;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -11,7 +9,7 @@ import shop.shopping.Service.MemberService;
 import shop.shopping.domain.Dto.MemberSaveDto;
 import shop.shopping.repository.InvalidFormatException;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/member")

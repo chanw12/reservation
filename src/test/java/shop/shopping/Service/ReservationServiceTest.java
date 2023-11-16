@@ -25,7 +25,8 @@ class ReservationServiceTest {
     RoomRepository roomRepository;
     @Test
     void register() {
+        ReservationSaveDto dto = new ReservationSaveDto("2023-06-01", "2023-06-05", "NOTCOMPLETE",2, 200000,"MB_1","RM_1");
 
-
+        reservationService.register();
     }
 }

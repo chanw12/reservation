@@ -1,7 +1,13 @@
 package shop.shopping.domain.Dto;
 
 import lombok.Data;
+import shop.shopping.domain.Owner;
 import shop.shopping.domain.Pension;
+
+import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import java.time.LocalDateTime;
 
 @Data
 public class PensionSaveDto {

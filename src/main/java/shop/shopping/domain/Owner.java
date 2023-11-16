@@ -1,7 +1,7 @@
 package shop.shopping.domain;
 
 
-import com.sun.istack.NotNull;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
